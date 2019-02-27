@@ -3,6 +3,7 @@
 
 module Control.Monad.Trans.Guarded
   ( GuardedT
+  , runGuardedT
   )
 where
 

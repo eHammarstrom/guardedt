@@ -1,5 +1,8 @@
+{-# LANGUAGE RankNTypes, GeneralizedNewtypeDeriving #-}
+
 module Main where
 
+import Control.Monad.Trans
 import Control.Monad.Trans.Guarded
 
 -- Constrained IO monad as shown by MightyByte
@@ -15,7 +18,7 @@ newtype Token s = Token String
 
 getToken :: ReadGuard s (Token s)
 getToken = do
-  token <- lift $ gReadFile "./superSecretPassword"
+  token <- lift $ gReadFile "./LICENSE"
   return . Token $ token
 
 getUsers :: ReadGuard s [String]
